@@ -11,6 +11,21 @@ services:
     networks:
       test:
         ipv4_address: 172.28.1.3
+  pihole:
+    image: diginc/pi-hole
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+    environment:
+      # enter your docker host IP here
+      ServerIP: 192.168.1.135
+    # Add your own custom hostnames you need for your domain
+    #volumes:
+    #  - "./pihole:/etc/pihole"
+    #  - "./dnsmasq.d:/etc/dnsmasq.d"
+    #  - "./log/pihole.log:/var/log/pihole.log"
+    #restart: always
 networks:
   test:
     driver: overlay
