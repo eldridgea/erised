@@ -5,6 +5,7 @@ This will deploy a docker stack of 3(ish) containers.
 cloudflared (or another DoH/DoT proxy)
 pihole (or other DNS based adblocker)
 OpenVPN (or other VPN)
+dnss - receives incoming DoH request and passed to upstream DNS server
 
 
 For prodcucrization maybe use cloudflare bandwidth alliance, and provide VPN Service.
