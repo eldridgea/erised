@@ -3,7 +3,9 @@ FROM golang:latest
 # Downlaod and install dnss
 RUN go get -v blitiri.com.ar/go/dnss
 
-#Run dnss
-CMD  [ "/go/bin/dnss", "--help" ]
+# Copy in certificates
+COPY fullchain.pem /certs/fullchain.pem
+COPY privkey.pem /certs/privkey.pem
 
-## Command to get dnss proxying incoming DoH traffic is sudo ./dnss -enable_https_to_dns   -https_key=/home/eldridgea/privkey.pem -https_cert=/home/eldridgea/fullchain.pem 
+# Run dnss
+CMD  [ "/go/bin/dnss", "-enable_https_to_dns", "-https_key=/certs/privkey.pem", "-https_cert=/certs/fullchain.pem", "-dns_upstream", "1.1.1.1:53"]
