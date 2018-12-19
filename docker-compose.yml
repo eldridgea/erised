@@ -33,6 +33,13 @@ services:
     #  - "./dnsmasq.d:/etc/dnsmasq.d"
     #  - "./log/pihole.log:/var/log/pihole.log"
     #restart: always
+  dnss:
+    networks:
+      test:
+        ipv4_address: 172.28.1.5
+    ports:
+      - "443:443/tcp"
+      - "443:443/upd"
 networks:
   test:
     driver: overlay
