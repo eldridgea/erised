@@ -16,10 +16,10 @@ services:
     networks:
       test:
         ipv4_address: 172.28.1.4
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "80:80/tcp"
+#    ports:
+#      - "53:53/tcp"
+#      - "53:53/udp"
+#      - "80:80/tcp"
     environment:
       # enter your docker host IP here
       ServerIP: "0.0.0.0"
@@ -34,6 +34,7 @@ services:
     #  - "./log/pihole.log:/var/log/pihole.log"
     #restart: always
   dnss:
+    build: dnss
     networks:
       test:
         ipv4_address: 172.28.1.5
