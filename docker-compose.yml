@@ -39,7 +39,7 @@ services:
         ipv4_address: 172.28.1.5
     ports:
       - "443:443/tcp"
-      - "443:443/upd"
+      - "443:443/udp"
 networks:
   test:
     driver: overlay
