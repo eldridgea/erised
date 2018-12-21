@@ -17,8 +17,8 @@ services:
       test:
         ipv4_address: 172.28.1.4
     ports:
-#      - "53:53/tcp"
-#      - "53:53/udp"
+      - "9999:53/tcp"
+      - "9999:53/udp"
 #      - "8443:443/tcp"
       - "8080:80/tcp"
     environment:
