@@ -1,3 +1,6 @@
+Thie currently deploys the Caddy container using a Caddy install using a Personal License. 
+Make sure to change this if you require the commerical license.
+
 A project to only see what you want to see.
 
 This will deploy a docker stack of 3(ish) containers. 
