@@ -1,5 +1,11 @@
 version: "3"
 services:
+  deb_test:
+    image: debian
+    command: ["sleep", "infinity"]
+    networks:
+      test:
+        ipv4_address: 172.28.1.23
   cloudflared:
     build: cloudflared
     networks:
