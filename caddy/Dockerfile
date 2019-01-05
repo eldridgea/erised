@@ -11,4 +11,4 @@ COPY test.conf /root/test.conf
 ENV CADDYPATH=/root/.caddy
 
 # Run caddy
-CMD  [ "caddy", "-type=net", "-agree", "-conf", "/root/test.conf" ]
+CMD  [ "caddy", "-type=net", "-agree", "-email", "eldridgea@gmail.com", "-conf", "/root/test.conf" ]

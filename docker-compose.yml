@@ -5,22 +5,11 @@ services:
     networks:
       test:
         ipv4_address: 172.28.1.2
-  host:
-    image: debian
-    command: sleep infinity
-    networks:
-      test:
-        ipv4_address: 172.28.1.3
   pihole:
     image: diginc/pi-hole
     networks:
       test:
         ipv4_address: 172.28.1.4
-    ports:
-      - "9999:53/tcp"
-      - "9999:53/udp"
-#      - "8443:443/tcp"
-      - "8080:80/tcp"
     environment:
       # enter your docker host IP here
       ServerIP: "0.0.0.0"
@@ -39,9 +28,22 @@ services:
     networks:
       test:
         ipv4_address: 172.28.1.5
-#    ports:
-#      - "443:443/tcp"
-#      - "443:443/udp"
+  caddy:
+    build: caddy
+    volumes:
+      - caddy-data:/root/.caddy
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "853:853/tcp"
+      - "853:853/udp"
+    networks:
+      test:
+        ipv4_address: 172.28.1.6
+
+volumes:
+  caddy-data:
+
 networks:
   test:
     driver: overlay
