@@ -1,11 +1,5 @@
 version: "3"
 services:
-  deb_test:
-    image: debian
-    command: ["sleep", "infinity"]
-    networks:
-      test:
-        ipv4_address: 172.28.1.23
   cloudflared:
     build: cloudflared
     networks:
@@ -29,18 +23,15 @@ services:
     #  - "./dnsmasq.d:/etc/dnsmasq.d"
     #  - "./log/pihole.log:/var/log/pihole.log"
     #restart: always
-  dnss:
-    build: dnss
-    networks:
-      test:
-        ipv4_address: 172.28.1.5
   caddy:
+    environment:
+      - ERISEDHOST
+      - ERISEDEMAIL
     build: caddy
     volumes:
       - caddy-data:/root/.caddy
     ports:
       - "80:80/tcp"
-      - "443:443/tcp"
       - "853:853/tcp"
       - "853:853/udp"
     networks:

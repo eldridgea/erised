@@ -1,6 +1,30 @@
 Thie currently deploys the Caddy container using a Caddy install using a Personal License. 
 Make sure to change this if you require the commerical license.
 
+
+To start this run these commands:
+`docker-compose build --build-arg ERISEDHOST=YOUR_HOSTNAME ERISEDEMAIL=YOUR_EMAIL`
+Replace YOUR_HOSTNAME with your hostname and YOUR_EMAIL with your email.
+
+Then run `docker-compose up`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 A project to only see what you want to see.
 
 This will deploy a docker stack of 3(ish) containers. 
