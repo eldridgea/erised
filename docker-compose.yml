@@ -11,18 +11,14 @@ services:
       test:
         ipv4_address: 172.28.1.4
     environment:
-      # enter your docker host IP here
       ServerIP: "0.0.0.0"
       DNS1: "172.28.1.2"
       DNS2: "no"
-      WEBPASSWORD: "p3i1t4N1"
       DNSMASQ_LISTENING: "all"
-    # Add your own custom hostnames you need for your domain
-    #volumes:
-    #  - "./pihole:/etc/pihole"
-    #  - "./dnsmasq.d:/etc/dnsmasq.d"
-    #  - "./log/pihole.log:/var/log/pihole.log"
-    #restart: always
+    volumes:
+      - pihole-etc-pihole:/etc/pihole
+      - pihole-dnsmasqd:/etc/dnsmasq.d
+      - pihole-log:/var/log/
   caddy:
     environment:
       - ERISEDHOST
@@ -40,6 +36,9 @@ services:
 
 volumes:
   caddy-data:
+  pihole-etc-pihole:
+  pihole-dnsmasqd:
+  pihole-log:
 
 networks:
   test:
