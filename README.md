@@ -86,3 +86,10 @@ A DNS request will look like this:
         |Cloudflare's     |
         | 1.1.1.1 service |
         -------------------
+
+## Using on Android 9.0 +
+DNS-over-TLS is a built in feature on Android 9 (Pie) and later. If used, Android will use that DNS server for all requests on all networks. So this allows for system-wide blocking on all apps and all networks without the need for an always-on VPN.
+
+To use this, open up your Android settings > Network & Internet > Advanced > Private DNS.
+
+Select the "Private DNS provider hostname" option and enter in your hostname that you used for your DNS record and in the build command.
