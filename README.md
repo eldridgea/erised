@@ -1,74 +1,87 @@
-Thie currently deploys the Caddy container using a Caddy install using a Personal License. 
+# ERISED
+### A project to only see what you want to see.
+
+This is a project with the goal of blocking unwanted ads, trackers, etc across an entire system.
+
+This group of containers will accept incoming DNS-over-TLS (DoH) requests, pass them through the [Pi-hole](https://pi-hole.net/) blocker, and then pass them upstream to an encrypted DNS server.
+
+This currently deploys the Caddy container using a Caddy install using a Personal License. 
 Make sure to change this if you require the commerical license.
 
+## Prerequsistes
 
-To start this run these commands:
+Before deploying this you'll need to:
+
+* install [Docker](https://docs.docker.com/install/)
+* install [Docker Compose](https://docs.docker.com/install/)
+* Get a DNS A or AAAA record pointing to your server's IP
+* Open port 853 and 80 on your firewall (80 to get a certificate, and 853 for the actual service) 
+
+## Deploying
+
+Once you have all this, clone this repo
+`git clone https://github.com/eldridgea/erised.git`
+
+Change into the cloned directory and run the build command replacing "YOUR_HOSTNAME" with your hostname and "YOUR_EMAIL" with your email.
+
+`cd erised`
 `docker-compose build --build-arg ERISEDHOST=YOUR_HOSTNAME --build-arg ERISEDEMAIL=YOUR_EMAIL`
-Replace YOUR_HOSTNAME with your hostname and YOUR_EMAIL with your email.
 
-Then run `docker-compose up`
+Once this is done run 
 
+`docker-compose up -d`
 
-
-
-
+(Or run `docker-compose up` if you want logging output to your terminal)
 
 
+## Details
 
+This will deploy a stack of three containers:
 
+* cloudflared - to encrypt DNS queries before passing them upstream
+* PiHole - to filter out unwanted results
+* Caddy - to allow incoming DNS requests to use TLS
 
-
-
-
-
-
-
-
-
-A project to only see what you want to see.
-
-This will deploy a docker stack of 3(ish) containers. 
-
-* cloudflared (or another DoH/DoT proxy)
-* pihole (or other DNS based adblocker)
-* OpenVPN (or other VPN)
-* dnss - receives incoming DoH request and passed to upstream DNS server
-
-
-For prodcucrization maybe use cloudflare bandwidth alliance, and provide VPN Service.
+A DNS request will look like this:
 
         ---------
-        |       |
+        |Your   |
         |Device |
-        | .     |
+        |       |
         ---------
             |
             |
-        DNS Query
             |
             |
         ---------
         |       |
-        |VPN    |
-        | .     |
+        |Caddy  |
+        |       |
         ---------
             |
             |
-        DNS Query
             |
             |
         ---------
         |       |
         |pihole |
-        | .     |
+        |       |
         ---------   
             |
             |
-        DNS Query
             |
             |
-        --------------
+        ---------------
         |             |
         |cloudoflared |
-        | .           |
-        --------------
+        |             |
+        ---------------
+            |
+            |
+            |
+            |
+        -------------------
+        |                 |
+        |Cloudflare's     |
+        | 1.1.1.1 service |
+        -------------------
