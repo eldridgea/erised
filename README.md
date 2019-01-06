@@ -3,7 +3,7 @@ Make sure to change this if you require the commerical license.
 
 
 To start this run these commands:
-`docker-compose build --build-arg ERISEDHOST=YOUR_HOSTNAME ERISEDEMAIL=YOUR_EMAIL`
+`docker-compose build --build-arg ERISEDHOST=YOUR_HOSTNAME --build-arg ERISEDEMAIL=YOUR_EMAIL`
 Replace YOUR_HOSTNAME with your hostname and YOUR_EMAIL with your email.
 
 Then run `docker-compose up`
