@@ -5,8 +5,9 @@ This is a project with the goal of blocking unwanted ads, trackers, etc across a
 
 This group of containers will accept incoming DNS-over-TLS (DoH) requests, pass them through the [Pi-hole](https://pi-hole.net/) blocker, and then pass them upstream to an encrypted DNS server.
 
-This currently deploys the Caddy container using a Caddy install using a Personal License. 
-Make sure to change this if you require the commerical license.
+    Note:
+    This currently deploys the Caddy container using a Caddy install using a Personal License. 
+    Make sure to change this if you require the commerical license.
 
 ## Prerequsistes
 
