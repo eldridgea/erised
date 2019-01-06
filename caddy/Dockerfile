@@ -5,7 +5,6 @@ FROM golang:latest
 RUN curl https://getcaddy.com | bash -s personal net
 
 # Copy configs
-COPY http.conf /root/http.conf
 COPY net.conf  /root/net.conf
 
 
@@ -13,6 +12,4 @@ COPY net.conf  /root/net.conf
 ENV CADDYPATH=/root/.caddy
 
 # Run caddy
-#CMD  [ "caddy", "-type=net", "-agree", "-email", "eldridgea@gmail.com", "-conf", "/root/test.conf" ]
-CMD [ "/bin/bash", "caddy", "-type=net", "-agree", "-email", "eldridgea@gmail.com", "-conf", "/root/net.conf", "&", "caddy", "-type=http", "-agree", "-email", "eldridgea@gmail.com", "-conf", "/root/http.conf" ]
-#CMD [ "sleep", "infinity"]
+CMD  [ "caddy", "-type=net", "-agree", "-email", "eldridgea@gmail.com", "-conf", "/root/net.conf" ]
