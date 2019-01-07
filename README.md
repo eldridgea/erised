@@ -76,7 +76,7 @@ A DNS request will look like this:
             |
         ---------------
         |             |
-        |cloudoflared |
+        |cloudflared |
         |             |
         ---------------
             |
