@@ -21,11 +21,13 @@ Before deploying this you'll need to:
 ## Deploying
 
 Once you have all this, clone this repo
+
 `git clone https://github.com/eldridgea/erised.git`
 
 Change into the cloned directory and run the build command replacing "YOUR_HOSTNAME" with your hostname and "YOUR_EMAIL" with your email.
 
 `cd erised`
+
 `docker-compose build --build-arg ERISEDHOST=YOUR_HOSTNAME --build-arg ERISEDEMAIL=YOUR_EMAIL`
 
 Once this is done run 
