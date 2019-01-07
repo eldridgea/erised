@@ -1,7 +1,7 @@
 # ERISED
 ### A project to only see what you want to see.
 
-This is a project with the goal of blocking unwanted ads, trackers, etc across an entire system.
+This is a project with the goal of blocking unwanted ads, trackers, etc across an entire system. Currently focusing on Android since that's the only major OS with a native DNS-over-TLS implementation.
 
 This group of containers will accept incoming DNS-over-TLS (DoH) requests, pass them through the [Pi-hole](https://pi-hole.net/) blocker, and then pass them upstream to an encrypted DNS server.
 
