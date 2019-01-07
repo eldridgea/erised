@@ -1,11 +1,13 @@
 version: "3"
 services:
   cloudflared:
+    restart: always
     build: cloudflared
     networks:
       test:
         ipv4_address: 172.28.1.2
   pihole:
+    restart: always
     image: diginc/pi-hole
     networks:
       test:
@@ -20,6 +22,7 @@ services:
       - pihole-dnsmasqd:/etc/dnsmasq.d
       - pihole-log:/var/log/
   caddy:
+    restart: always
     environment:
       - ERISEDHOST
       - ERISEDEMAIL
