@@ -4,13 +4,13 @@ services:
     restart: always
     build: cloudflared
     networks:
-      test:
+      internal:
         ipv4_address: 172.28.1.2
   pihole:
     restart: always
     image: diginc/pi-hole
     networks:
-      test:
+      internal:
         ipv4_address: 172.28.1.4
     environment:
       ServerIP: "0.0.0.0"
@@ -34,7 +34,7 @@ services:
       - "853:853/tcp"
       - "853:853/udp"
     networks:
-      test:
+      internal:
         ipv4_address: 172.28.1.6
 
 volumes:
@@ -44,7 +44,7 @@ volumes:
   pihole-log:
 
 networks:
-  test:
+  internal:
     driver: overlay
     ipam:
      config:
