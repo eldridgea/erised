@@ -2,6 +2,7 @@
 ### A project to only see what you want to see.
 #### Adblocking using DNS-over-TLS
 
+
 This is a project with the goal of blocking unwanted ads, trackers, etc across an entire operating system (web and apps). Currently focusing on Android since that's the only major OS with a native DNS-over-TLS implementation.
 
 This group of containers will accept incoming DNS-over-TLS (DoH) requests, pass them through the [Pi-hole](https://pi-hole.net/) blocker, and then pass them upstream to an encrypted DNS server.
