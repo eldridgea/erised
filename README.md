@@ -1,4 +1,4 @@
-# ERISED - A project to only see what you want to see.
+# ERISED - Only see what you want to see
 ### Adblocking using DNS-over-TLS
 
 
