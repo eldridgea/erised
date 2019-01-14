@@ -1,6 +1,6 @@
 # ERISED
 ### A project to only see what you want to see.
-## Adblocking using DNS-over-TLS
+#### Adblocking using DNS-over-TLS
 
 This is a project with the goal of blocking unwanted ads, trackers, etc across an entire operating system (web and apps). Currently focusing on Android since that's the only major OS with a native DNS-over-TLS implementation.
 
